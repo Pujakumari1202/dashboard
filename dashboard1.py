@@ -20,13 +20,12 @@ st.markdown('<style>dive.block-container{padding-top:1rem;}</style>',unsafe_allo
 #load the file
 f1=st.file_uploader(":file_folder: Upload a file",type=(["csv","txt","xlsx","xls"]))
 if f1 is not None:
-    filename=f1.name
+    filename = f1.name
     st.write(filename)
-    df= pd.read_csv(filename,encoding="ISO-8859-1",delim_whitespace=True, on_bad_lines="skip")
-
+    df = pd.read_excel(filename)
 else:
     os.chdir(r"C:\Users\PUJA KUMARI\Desktop\dashboard")
-    df=pd.read_csv("Superstore.csv",encoding="ISO-8859-1",delim_whitespace=True, on_bad_lines="skip")
+    df = pd.read_excel("Superstore.xlsx")
 
 
 #create a date picker ,user can choose specific period of the data
@@ -60,4 +59,5 @@ if not region:
 else :
     df2=df[df["Region"].isin(region)]
 
-# Create for state if we select any bthen we get only that part of states
+# Create for state if we select any bthen we get only that part of states
+
